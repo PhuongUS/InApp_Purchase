@@ -20,6 +20,7 @@ The subscription will automatically renew 6 times per account per 8 hour window,
 Each automatic renewal sends a transaction to the app. The transaction, or transactions, depending on how much time has passed, is processed the next time the app is opened. Validating these transactions triggers yet another password prompt. When the app is live on the App Store it shouldn’t trigger these additional password prompts.
 
 ##TestFlight Testing
+
 First off, subscribing in a TestFlight distributed app prompts the user 3 times for their Apple ID password and does not allow the use of Touch ID to complete the transaction. Sometimes, after starting a new subscription multiple times on the same device (after the first 6 auto-renewals), only 2 password prompts are displayed ¯\_(ツ)_/¯. It would be nice if the purchase flow while testing mirrored that of a live app on the App Store, but that’s just not the case for whatever reason. It’s a bit disconcerting to see so many password requests while testing, but rest assured, once the app is live on the App Store the purchase flow will work as expected (which is a single, Touch ID enabled purchase sheet on iOS 11).
 
 Testing renewals and expiration:
@@ -61,6 +62,7 @@ Test restoring purchases across devices:
 Active subscription should be found and the app should change to the subscribed state.
 
 ##TestFlight Caveats
+
 Note that since the subscription is only auto-renewed 6 times in an 8 hour window, some of the procedures above will change if those 6 renewals have already happened.
 
 If the subscription is associated with an account and the subscription status maintained server-side, the testing procedures get much more complicated and are beyond the scope of this post.
@@ -68,6 +70,7 @@ If the subscription is associated with an account and the subscription status ma
 One thing to keep in mind is that with subscriptions being so hard to initiate (3 password prompts, no Touch ID) and renew (another password prompt, no Touch ID), the subscribed state is likely to get significantly less testing from beta users than the un-subscribed state. Consider creating a secret unlock code/gesture to allow beta testers access to the subscribed state for longer periods of time without having to jump through hoops.
 
 ##Production Testing
+
 For an app that has yet to be released on the App Store, getting an early version of the app approved is a great way to test subscriptions:
 
 1. Submit a beta version of the app to App Review. Make sure to set “Version Release” to “Manually release this version” so that the app is not released on the App Store.
@@ -78,9 +81,11 @@ For an app that has yet to be released on the App Store, getting an early versio
 Since this app has gone through approval, subscriptions will perform exactly as they will when the app is live on the App Store, including charging testers who subscribe and allowing testers to manage the subscription in the App Store app. Promo codes can be given to testers so that they can test the app for free. Subscriptions paid for via promo code work exactly like paid subscriptions, except that they don’t auto-renew.
 
 ##Sandbox Testing
+
 Finally, it’s also possible to test auto-renewable subscriptions via sandbox test accounts, but this form of testing has been well documented, so I won’t bother rehashing how that works.
 
 ##Rejection
+
 After going through all the testing mentioned above, my app was rejected for not properly disclosing the subscription in the app and in the App Store description. To save others time, here’s the relavent section from the rejection notice:
 
 We noticed that your app did not fully meet the terms and conditions for auto-renewing subscriptions, as specified in Schedule 2, Section 3.8(b), included below:
@@ -96,6 +101,7 @@ We noticed that your app did not fully meet the terms and conditions for auto-re
     - Any unused portion of a free trial period, if offered, will be forfeited when the user purchases a subscription to that publication, where applicable  
 
 ##Solution
+
 Using The Atlantic app and the above text as a reference, here’s the text I used in my app:
 
 Information about Weather Atlas Pro subscriptions:
