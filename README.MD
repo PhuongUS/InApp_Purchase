@@ -1,7 +1,9 @@
 # Testing Auto-Renewable Subscriptions on iOS
+
 Subscriptions work differently in TestFlight, the sandbox, and live on the App Store, so testing them requires knowledge of those differences. This is my attempt to help sort out the mess and document it for others to reference. 
 
 ##General Notes
+
 Subscription length has been significantly shortened for testing purposes. This allows users to quickly test multiple renewals and expirations via TestFlight or with sandbox users.
 
 Actual subscription duration -> Test duration
