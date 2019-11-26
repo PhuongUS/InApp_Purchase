@@ -110,3 +110,5 @@ Information about Weather Atlas Pro subscriptions:
 - Your account will be charged for renewal within 24-hours prior to the end of the current subscription period. Automatic renewals will cost the same price you were originally charged for the subscription.
 - You can manage your subscriptions and turn off auto-renewal by going to your Account Settings on the App Store after purchase.
 - Read our terms of service and privacy policy for more information.
+- Check UI: https://developer.apple.com/app-store/subscriptions/
+            https://developer.apple.com/design/human-interface-guidelines/subscriptions/overview/
